@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { CommunitySignup } from "@/components/CommunitySignup";
 import { Icon } from "@/components/Icon";
-import { Logo } from "@/components/Logo";
+import { Logo, LogoMark } from "@/components/Logo";
 import { T } from "@/components/Ph";
 import { categories, contact, paymentMethods, site, socials, whatsappLink } from "@/lib/site";
 
@@ -25,8 +25,9 @@ export function SiteFooter() {
 
       <div className="container-page grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.3fr]">
         <div>
-          <Link href="/" aria-label="ZenPen home">
-            <Logo tone="dark" />
+          <Link href="/" aria-label="ZenPen home" className="inline-flex items-center gap-4">
+            <LogoMark variant="medallion" className="size-24 flex-none" />
+            <Logo tone="dark" className="[&>img]:hidden" />
           </Link>
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-slate-400">
             Genuine tech, everyday style and trusted beauty — delivered across Ghana by {site.legalName}.

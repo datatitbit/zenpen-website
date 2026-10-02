@@ -27,7 +27,7 @@ export function HeroShowcase() {
           <div className="flex items-center gap-2 px-5 pt-4">
             <LogoMark className="size-7" />
             <span className="font-display text-lg font-bold">
-              Zen<span className="text-jade-600">Pen</span>
+              Zen<span className="text-copper-600">Pen</span>
             </span>
             <span className="ml-auto grid size-8 place-items-center rounded-full bg-white shadow-sm">
               <Icon name="bag" className="size-4" />

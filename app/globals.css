@@ -23,6 +23,12 @@
   --coral-500: #ff5d3a;
   --coral-600: #d9401d;
   --sun-400: #ffc24b;
+  /* Warm metals from the medallion logo: gold = value, copper = warmth. */
+  --gold-300: #ffe6a8;
+  --gold-400: #f2b544;
+  --copper-600: #b8652a;
+  --copper-700: #8a4519;
+  --cocoa-900: #3e1f10;
 
   --bg: #faf6f0;
   --surface: #ffffff;
@@ -67,6 +73,11 @@
   --color-coral-500: var(--coral-500);
   --color-coral-600: var(--coral-600);
   --color-sun-400: var(--sun-400);
+  --color-gold-300: var(--gold-300);
+  --color-gold-400: var(--gold-400);
+  --color-copper-600: var(--copper-600);
+  --color-copper-700: var(--copper-700);
+  --color-cocoa-900: var(--cocoa-900);
 
   --color-bg: var(--bg);
   --color-surface: var(--surface);
@@ -208,7 +219,7 @@ body {
 
   .text-gradient {
     color: var(--jade-400);
-    background: linear-gradient(110deg, var(--jade-300), var(--jade-400) 35%, var(--coral-400) 80%);
+    background: linear-gradient(110deg, var(--jade-300), var(--gold-400) 50%, var(--coral-400) 90%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
