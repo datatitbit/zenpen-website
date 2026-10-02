@@ -1,4 +1,4 @@
-# ZenPen (Zen Pen Enterprise)
+﻿# ZenPen (Zen Pen Enterprise)
 
 > ZenPen is a Ghanaian-owned, online-first retail business. Tagline: "Shop calm.
 > Live bold." It sells genuine mobile electronics and accessories, fashion and
@@ -19,6 +19,6 @@
 - WhatsApp / phone: +233 24 350 6373
 - Email: zenpengh@gmail.com
 - Website: https://zenpengh.com
-- Payment: Mobile Money (MTN MoMo, Telecel Cash, AirtelTigo Money), bank card,
-  pay on delivery in selected areas.
+- Payment: Mobile Money (MTN MoMo, Telecel Cash, AirtelTigo Money), bank transfer,
+  pay on delivery in selected areas. Card payments coming soon.
 - Delivery across Ghana. Bulk, corporate and gift orders accepted.

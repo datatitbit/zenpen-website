@@ -206,7 +206,7 @@ export const promises: { title: string; body: Copy; icon: IconName }[] = [
   },
   {
     title: "Pay the Ghana way",
-    body: ph("MTN MoMo, Telecel Cash, AirtelTigo Money, bank card — or pay on delivery in Accra."),
+    body: ph("MTN MoMo, Telecel Cash, AirtelTigo Money or bank transfer — or pay on delivery in Accra. Card payments coming soon."),
     icon: "wallet",
   },
   {
@@ -234,7 +234,7 @@ export const promises: { title: string; body: Copy; icon: IconName }[] = [
 export const steps: { title: string; body: string }[] = [
   { title: "Browse", body: "Pick a category here, or see the latest drops on Instagram and TikTok." },
   { title: "Chat & order", body: "Send us a WhatsApp message or the order form — we confirm price, stock and delivery." },
-  { title: "Pay securely", body: "Pay with Mobile Money or card, or on delivery where available." },
+  { title: "Pay securely", body: "Pay with Mobile Money or bank transfer, or on delivery where available." },
   { title: "Enjoy", body: "Your order arrives packed with care. Questions after? We're one message away." },
 ];
 
@@ -266,7 +266,7 @@ export const bundles: { name: string; blurb: string; contents: string[]; price: 
   },
 ];
 
-export const paymentMethods = ["MTN MoMo", "Telecel Cash", "AirtelTigo Money", "Visa", "Mastercard", "Pay on delivery"];
+export const paymentMethods = ["MTN MoMo", "Telecel Cash", "AirtelTigo Money", "Bank transfer", "Pay on delivery"];
 
 export const faqs: { q: string; a: Copy }[] = [
   {
@@ -280,7 +280,7 @@ export const faqs: { q: string; a: Copy }[] = [
   {
     q: "How can I pay?",
     a: ph(
-      "Mobile Money (MTN MoMo, Telecel Cash, AirtelTigo Money), bank card, or cash/MoMo on delivery within Accra. We'll never ask for your PIN.",
+      "Mobile Money (MTN MoMo, Telecel Cash, AirtelTigo Money), bank transfer, or cash/MoMo on delivery within Accra. Card payments are coming soon. We'll never ask for your PIN.",
     ),
   },
   {

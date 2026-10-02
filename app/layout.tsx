@@ -74,7 +74,7 @@ const jsonLd = {
   telephone: "+233243506373",
   areaServed: { "@type": "Country", name: "Ghana" },
   currenciesAccepted: "GHS",
-  paymentAccepted: "Mobile Money, Credit Card, Cash",
+  paymentAccepted: "Mobile Money, Bank Transfer, Cash",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
