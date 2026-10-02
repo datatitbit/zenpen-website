@@ -51,7 +51,7 @@ export function HeroShowcase() {
                 </span>
                 <span className="min-w-0 flex-1">
                   <span className="block truncate text-[0.75rem] font-semibold">{name}</span>
-                  <span className="text-[0.62rem] text-slate-500">{tag} · Ready to deliver</span>
+                  <span className="text-[0.62rem] text-slate-500">{tag} · Coming soon</span>
                 </span>
                 <span className="grid size-7 place-items-center rounded-full bg-ink-900 text-white">
                   <Icon name="arrowRight" className="size-3.5" />
@@ -74,11 +74,11 @@ export function HeroShowcase() {
 
       <div className="float-slow absolute -right-2 bottom-6 flex items-center gap-2.5 rounded-2xl bg-white px-3.5 py-3 text-ink-900 shadow-xl sm:-right-8">
         <span className="grid size-8 place-items-center rounded-full bg-jade-500 text-white">
-          <Icon name="truck" className="size-4" />
+          <Icon name="sparkles" className="size-4" />
         </span>
         <span className="text-[0.72rem] leading-tight">
-          <span className="block font-bold">Out for delivery</span>
-          <span className="text-slate-500">Track it on WhatsApp</span>
+          <span className="block font-bold">Launching soon</span>
+          <span className="text-slate-500">Join the insider list</span>
         </span>
       </div>
     </div>

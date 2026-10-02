@@ -10,7 +10,7 @@ export function SiteFooter() {
 
   return (
     <footer className="zone-dark bg-ink-950 text-slate-300">
-      <div className="border-b border-white/10 bg-white/[0.03]">
+      <div id="insider" className="border-b border-white/10 bg-white/[0.03]">
         <div className="container-page flex flex-col gap-6 py-12 lg:flex-row lg:items-center lg:justify-between">
           <div>
             <p className="eyebrow !text-jade-300">The ZenPen insider list</p>
@@ -30,7 +30,7 @@ export function SiteFooter() {
             <Logo tone="dark" className="[&>img]:hidden" />
           </Link>
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-slate-400">
-            Genuine tech, everyday style and trusted beauty — delivered across Ghana by {site.legalName}.
+            Genuine tech, everyday style and trusted beauty — from {site.legalName}, launching soon in Ghana.
           </p>
           <ul className="mt-5 flex flex-wrap gap-2">
             {socials.map((s) => (
@@ -71,7 +71,7 @@ export function SiteFooter() {
           <h2 className="font-display text-sm font-semibold tracking-wide text-white">Help</h2>
           <ul className="mt-4 space-y-2.5 text-sm">
             <li><Link href="/#how" className="hover:text-jade-300">How to order</Link></li>
-            <li><Link href="/#faq" className="hover:text-jade-300">Delivery &amp; returns</Link></li>
+            <li><Link href="/#faq" className="hover:text-jade-300">Returns &amp; FAQs</Link></li>
             <li><Link href="/#contact" className="hover:text-jade-300">Bulk &amp; gift orders</Link></li>
             <li><Link href="/privacy/" className="hover:text-jade-300">Privacy policy</Link></li>
           </ul>

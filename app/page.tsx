@@ -8,7 +8,7 @@ import {
   categories,
   channels,
   contact,
-  delivery,
+  launch,
   faqs,
   paymentMethods,
   promises,
@@ -53,14 +53,15 @@ export default function Home() {
           <div>
             <p className="chip !border-white/15 !bg-white/5 text-jade-300">
               <span className="size-2 rounded-full bg-jade-400" />
-              Ghana&apos;s calm way to shop
+              Launching soon in Ghana
             </p>
             <h1 className="mt-6 font-display text-[2.6rem] leading-[1.05] font-extrabold tracking-tight text-balance sm:text-6xl lg:text-[4.1rem]">
-              Gadgets, style &amp; glow — <span className="text-gradient">delivered calm.</span>
+              Gadgets, style &amp; glow — <span className="text-gradient">the calm way.</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-300">
-              Genuine phones and accessories, fashion that fits your life, and beauty you can trust. Order on
-              WhatsApp or online, pay with Mobile Money, and we&apos;ll bring it to your door.
+              Genuine phones and accessories, fashion that fits your life, and beauty you can trust — ordered
+              on WhatsApp or online and paid for with Mobile Money. We&apos;re opening soon: join the insider list to
+              be first in line.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <a
@@ -73,16 +74,16 @@ export default function Home() {
                 Shop on WhatsApp
                 <span className="sr-only"> (opens in a new tab)</span>
               </a>
-              <a href="#shop" className="btn btn-ghost-dark">
-                Browse categories
+              <a href="#insider" className="btn btn-ghost-dark">
+                Join the insider list
                 <Icon name="arrowRight" />
               </a>
             </div>
             <ul className="mt-10 grid max-w-xl gap-3 text-sm text-slate-300 sm:grid-cols-3">
               {[
                 { icon: "badge" as const, text: "Genuine, checked items" },
-                { icon: "wallet" as const, text: "MoMo or pay on delivery" },
-                { icon: "truck" as const, text: "Delivery across Ghana" },
+                { icon: "wallet" as const, text: "Pay with Mobile Money" },
+                { icon: "chat" as const, text: "Real people on WhatsApp" },
               ].map((b) => (
                 <li key={b.text} className="flex items-center gap-2.5">
                   <span className="grid size-8 flex-none place-items-center rounded-full bg-white/8 text-jade-300 ring-1 ring-white/10">
@@ -109,12 +110,48 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ───────────── Launching soon ───────────── */}
+      <section aria-labelledby="launch-title" className="container-page pt-16 sm:pt-20">
+        <div className="flex flex-col items-start gap-6 rounded-[2rem] border border-line bg-surface p-7 sm:flex-row sm:items-center sm:justify-between sm:p-9">
+          <div className="flex items-start gap-4">
+            <span className="grid size-12 flex-none place-items-center rounded-2xl bg-[#fff1d1] text-[#8a5a00] dark:bg-sun-400/15 dark:text-sun-400">
+              <Icon name="sparkles" className="size-6" />
+            </span>
+            <div>
+              <p className="eyebrow">Coming soon</p>
+              <h2 id="launch-title" className="mt-1 font-display text-2xl font-bold sm:text-3xl">
+                ZenPen is getting ready to open.
+              </h2>
+              <p className="mt-2 max-w-2xl leading-relaxed text-muted">
+                We&apos;re finalising our first collection, payments and delivery options. Join the insider list for
+                launch-day offers — or message us now if you&apos;re looking for something specific.
+              </p>
+            </div>
+          </div>
+          <div className="flex w-full flex-col gap-3 sm:w-auto">
+            <a href="#insider" className="btn btn-coral">
+              Join the insider list
+            </a>
+            <a
+              href={whatsappLink("Hello ZenPen, I'm interested in your launch. I'm looking for: ")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-outline"
+            >
+              <Icon name="chat" />
+              Ask on WhatsApp
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* ───────────── Categories ───────────── */}
-      <section id="shop" className="container-page py-20 sm:py-28">
+      <section id="shop" className="container-page pt-16 pb-20 sm:pt-20 sm:pb-28">
         <SectionHeading
           eyebrow="Shop by category"
           title="Three things you buy all the time — done properly."
-          body="We focus on three categories so we can do them well: honest advice, genuine stock and fast delivery."
+          body="We focus on three categories so we can do them well: honest advice, genuine stock and real people to help."
         />
         <div className="mt-14 grid gap-6 lg:grid-cols-3">
           {categories.map((c) => {
@@ -289,9 +326,9 @@ export default function Home() {
         </ol>
         <div className="mt-14 grid gap-4 rounded-3xl border border-line bg-surface p-6 sm:grid-cols-3 sm:p-8">
           {[
-            { icon: "truck" as const, label: "Accra & Tema", v: delivery.accra },
-            { icon: "globe" as const, label: "Nationwide", v: delivery.nationwide },
-            { icon: "refresh" as const, label: "Returns", v: delivery.returns },
+            { icon: "truck" as const, label: "Delivery", v: launch.delivery },
+            { icon: "globe" as const, label: "Online checkout", v: launch.checkout },
+            { icon: "refresh" as const, label: "Returns", v: launch.returns },
           ].map((d) => (
             <div key={d.label} className="flex items-start gap-3">
               <span className="icon-tile !size-10 flex-none">

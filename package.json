@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "brand": "node scripts/build-logo.mjs && node scripts/generate-brand-assets.mjs"
+    "brand": "node scripts/cut-logo.mjs && node scripts/generate-brand-assets.mjs"
   },
   "dependencies": {
     "next": "16.3.5",

@@ -24,7 +24,7 @@ export const site = {
   shortName: "ZenPen",
   tagline: "Shop calm. Live bold.",
   description:
-    "ZenPen is a Ghanaian online-first store for genuine phones and accessories, fashion and beauty — order on WhatsApp or online, pay with Mobile Money and get it delivered.",
+    "ZenPen is a Ghanaian online-first store for genuine phones and accessories, fashion and beauty — order on WhatsApp or online and pay with Mobile Money. Launching soon.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://zenpengh.com",
   /** While true, search engines are asked not to index the site (red-ink details still pending). */
   isPreview: true,
@@ -40,12 +40,12 @@ export const contact = {
   hours: ph("Online 24/7 · Pickup Mon – Sat, 9:00 AM – 7:00 PM"),
 };
 
-export const delivery = {
-  accra: ph("Same-day or next-day delivery within Accra & Tema"),
-  nationwide: ph("2 – 4 working days to all 16 regions"),
-  freeOver: ph("Free Accra delivery on orders over GH₵ 500"),
+/** No delivery promises until partners and fees are confirmed (owner, 2026-10-02). */
+export const launch = {
+  status: "Launching soon",
+  delivery: "Delivery options, areas and fees — coming soon",
+  checkout: "Online checkout — coming soon",
   returns: ph("7-day returns on unused items"),
-  warranty: ph("Warranty on electronics — length shown per item"),
 };
 
 export const socials: { name: string; icon: IconName; href: string; handle: Copy }[] = [
@@ -206,13 +206,13 @@ export const promises: { title: string; body: Copy; icon: IconName }[] = [
   },
   {
     title: "Pay the Ghana way",
-    body: ph("MTN MoMo, Telecel Cash, AirtelTigo Money or bank transfer — or pay on delivery in Accra. Card payments coming soon."),
+    body: ph("MTN MoMo, Telecel Cash, AirtelTigo Money or bank transfer. Card payments coming soon."),
     icon: "wallet",
   },
   {
-    title: "Fast, tracked delivery",
-    body: ph("Same-day or next-day in Accra & Tema, 2 – 4 working days nationwide."),
-    icon: "truck",
+    title: "Curated, not cluttered",
+    body: "A focused range of products we'd buy ourselves — and ready-made bundles so choosing is easy.",
+    icon: "sparkles",
   },
   {
     title: "Easy returns",
@@ -221,7 +221,7 @@ export const promises: { title: string; body: Copy; icon: IconName }[] = [
   },
   {
     title: "Real people, real answers",
-    body: "Ask anything on WhatsApp before you buy — sizes, specs, shades or delivery times.",
+    body: "Ask anything on WhatsApp before you buy — sizes, specs, shades or availability.",
     icon: "chat",
   },
   {
@@ -233,9 +233,9 @@ export const promises: { title: string; body: Copy; icon: IconName }[] = [
 
 export const steps: { title: string; body: string }[] = [
   { title: "Browse", body: "Pick a category here, or see the latest drops on Instagram and TikTok." },
-  { title: "Chat & order", body: "Send us a WhatsApp message or the order form — we confirm price, stock and delivery." },
-  { title: "Pay securely", body: "Pay with Mobile Money or bank transfer, or on delivery where available." },
-  { title: "Enjoy", body: "Your order arrives packed with care. Questions after? We're one message away." },
+  { title: "Chat & order", body: "Send us a WhatsApp message or the order form — we confirm the price and availability." },
+  { title: "Pay securely", body: "Pay with Mobile Money or bank transfer from our official numbers only." },
+  { title: "Enjoy", body: "Your order is packed with care. Questions after? We're one message away." },
 ];
 
 /** Curated bundles: real product ideas, prices still to be set by the owner. */
@@ -266,12 +266,12 @@ export const bundles: { name: string; blurb: string; contents: string[]; price: 
   },
 ];
 
-export const paymentMethods = ["MTN MoMo", "Telecel Cash", "AirtelTigo Money", "Bank transfer", "Pay on delivery"];
+export const paymentMethods = ["MTN MoMo", "Telecel Cash", "AirtelTigo Money", "Bank transfer", "Genuine products", "Real people on WhatsApp"];
 
 export const faqs: { q: string; a: Copy }[] = [
   {
     q: "How do I place an order?",
-    a: `Message us on WhatsApp at ${contact.whatsapp.display}, or use the order form on this page. We'll confirm availability, price and delivery, then send you a payment request.`,
+    a: `ZenPen is launching soon. You can already message us on WhatsApp at ${contact.whatsapp.display} or use the order form on this page — we'll confirm availability and price, then send you a payment request.`,
   },
   {
     q: "Are your products genuine?",
@@ -280,12 +280,12 @@ export const faqs: { q: string; a: Copy }[] = [
   {
     q: "How can I pay?",
     a: ph(
-      "Mobile Money (MTN MoMo, Telecel Cash, AirtelTigo Money), bank transfer, or cash/MoMo on delivery within Accra. Card payments are coming soon. We'll never ask for your PIN.",
+      "Mobile Money (MTN MoMo, Telecel Cash, AirtelTigo Money) or bank transfer. Card payments are coming soon. We'll never ask for your PIN.",
     ),
   },
   {
-    q: "Where do you deliver and how long does it take?",
-    a: ph("Same-day or next-day within Accra & Tema, and 2 – 4 working days to every region in Ghana. Delivery fees depend on your location."),
+    q: "Do you deliver?",
+    a: "Delivery options, areas and fees are being finalised and will be announced before launch. Message us on WhatsApp for the latest.",
   },
   {
     q: "Can I return or exchange an item?",

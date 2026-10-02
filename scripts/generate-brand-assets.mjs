@@ -1,9 +1,9 @@
-// Generates favicon, app icons, social share image and logo files from the ZenPen
-// medallion (assets/zenpen-medallion.svg) and its simplified monogram
-// (assets/zenpen-monogram.svg). Both SVGs come from scripts/build-logo.mjs.
+// Generates favicon, app icons, social share image and logo files from the owner's
+// medallion images (assets/zenpen-logo.png = full logo, assets/zenpen-favicon.png =
+// simplified mark), which scripts/cut-logo.mjs cuts out of the original renders.
 // Run with: npm run brand   (outputs are committed; rerun only if the logo changes)
 
-import { copyFile, mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 
@@ -12,9 +12,9 @@ const at = (rel) => fileURLToPath(new URL(rel, root));
 const INK = "#0c1326";
 
 await mkdir(at("public/brand/"), { recursive: true });
-const medallion = await readFile(at("assets/zenpen-medallion.svg"));
-const monogram = await readFile(at("assets/zenpen-monogram.svg"));
-const png = (svg, size) => sharp(svg, { density: 1200 }).resize(size, size).png().toBuffer();
+const medallion = await readFile(at("assets/zenpen-logo.png"));
+const monogram = await readFile(at("assets/zenpen-favicon.png"));
+const png = (img, size) => sharp(img).resize(size, size, { kernel: "lanczos3" }).png().toBuffer();
 const onBg = async (svg, size, inner, bg) =>
   sharp({ create: { width: size, height: size, channels: 4, background: bg } })
     .composite([{ input: await png(svg, inner), gravity: "center" }])
@@ -24,11 +24,10 @@ const onBg = async (svg, size, inner, bg) =>
 // Web logo files used by the header/footer and hero.
 await sharp(await png(monogram, 128)).webp({ quality: 92 }).toFile(at("public/brand/zenpen-monogram-128.webp"));
 await sharp(await png(medallion, 320)).webp({ quality: 92 }).toFile(at("public/brand/zenpen-medallion-320.webp"));
-await writeFile(at("public/brand/zenpen-medallion-1024.png"), await png(medallion, 1024));
-await writeFile(at("public/brand/zenpen-monogram-512.png"), await png(monogram, 512));
+await writeFile(at("public/brand/zenpen-logo.png"), medallion);
+await writeFile(at("public/brand/zenpen-favicon-mark.png"), monogram);
 
 // Favicon (browser tab): the simplified monogram stays legible at 16 px.
-await copyFile(at("assets/zenpen-monogram.svg"), at("app/icon.svg"));
 const icoSizes = [16, 32, 48];
 const pngs = await Promise.all(icoSizes.map((s) => png(monogram, s)));
 const header = Buffer.alloc(6);
@@ -49,7 +48,7 @@ pngs.forEach((buf, n) => {
 await writeFile(at("app/favicon.ico"), Buffer.concat([header, dir, ...pngs]));
 
 // Home-screen / app icons: monogram on the warm cocoa square so no corners show white.
-const COCOA = "#3e1f10";
+const COCOA = "#0e3b2c"; // deep green, matching the logo rim
 await writeFile(at("app/apple-icon.png"), await onBg(monogram, 180, 164, COCOA));
 await writeFile(at("public/brand/icon-192.png"), await onBg(monogram, 192, 176, COCOA));
 await writeFile(at("public/brand/icon-512.png"), await onBg(monogram, 512, 470, COCOA));
@@ -82,13 +81,13 @@ const og = `
   <text x="80" y="140" font-family="${font}" font-size="26" font-weight="700" letter-spacing="7" fill="#f2b544">ZENPEN · GHANA</text>
   <text x="80" y="250" font-family="${font}" font-size="68" font-weight="800" fill="#ffffff">Gadgets, style</text>
   <text x="80" y="335" font-family="${font}" font-size="68" font-weight="800" fill="#ffffff">&amp; glow —</text>
-  <text x="80" y="420" font-family="${font}" font-size="68" font-weight="800" fill="url(#t)">delivered calm.</text>
-  <text x="80" y="525" font-family="${font}" font-size="27" fill="#c7d0e2">Order on WhatsApp · Pay with MoMo · Delivery across Ghana</text>
+  <text x="80" y="420" font-family="${font}" font-size="68" font-weight="800" fill="url(#t)">the calm way.</text>
+  <text x="80" y="525" font-family="${font}" font-size="27" fill="#c7d0e2">Phones · Fashion · Beauty — launching soon in Ghana</text>
 </svg>`;
 await sharp(Buffer.from(og))
   .composite([{ input: await png(medallion, 400), left: 740, top: 115 }])
   .png()
   .toFile(at("app/opengraph-image.png"));
-await writeFile(at("app/opengraph-image.alt.txt"), "ZenPen — gadgets, style and glow, delivered calm across Ghana.");
+await writeFile(at("app/opengraph-image.alt.txt"), "ZenPen — gadgets, style and glow, the calm way. Launching soon in Ghana.");
 
 console.log("ZenPen brand assets written.");

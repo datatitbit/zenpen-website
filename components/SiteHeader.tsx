@@ -4,8 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Icon } from "@/components/Icon";
 import { Logo } from "@/components/Logo";
-import { T } from "@/components/Ph";
-import { delivery, whatsappLink } from "@/lib/site";
+import { whatsappLink } from "@/lib/site";
 
 const nav = [
   { href: "/#shop", label: "Shop" },
@@ -33,9 +32,13 @@ export function SiteHeader() {
     <>
       <div className="zone-dark bg-jade-700 text-center text-[0.82rem] font-medium text-white">
         <p className="container-page flex items-center justify-center gap-2 py-2">
-          <Icon name="truck" className="size-4 flex-none" />
+          <Icon name="sparkles" className="size-4 flex-none" />
           <span>
-            <T v={delivery.freeOver} /> · Pay with MoMo
+            <strong>ZenPen is launching soon.</strong>{" "}
+            <Link href="/#insider" className="underline underline-offset-2 hover:text-jade-100">
+              Join the insider list
+            </Link>{" "}
+            for launch-day offers.
           </span>
         </p>
       </div>

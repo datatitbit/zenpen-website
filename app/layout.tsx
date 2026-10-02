@@ -21,7 +21,7 @@ const inter = Inter({
   display: "swap",
 });
 
-const title = `${site.name} | Phones, Fashion & Beauty Delivered in Ghana`;
+const title = `${site.name} | Phones, Fashion & Beauty in Ghana — Launching Soon`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -41,7 +41,6 @@ export const metadata: Metadata = {
     "skincare Ghana",
     "shea butter",
     "pay with MoMo",
-    "delivery Accra",
   ],
   alternates: { canonical: "/" },
   openGraph: {
