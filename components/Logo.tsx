@@ -1,15 +1,16 @@
 /* eslint-disable @next/next/no-img-element -- static export; pre-sized brand images */
 
 /**
- * The ZenPen medallion: a ZP monogram whose P ends in a fountain-pen nib,
- * framed by a laurel of pens, in warm amber-gold and cocoa (warmth + value).
- * Small sizes use the simplified monogram; `variant="medallion"` shows the full badge.
+ * The owner's ZenPen medallion (copper + emerald, ZP monogram whose P ends in a pen nib).
+ * Small sizes use the simplified ZP mark (also the favicon); `variant="medallion"` shows
+ * the full badge with the laurel and ZEN PEN ENTERPRISE rim. Files are versioned (v2)
+ * so browsers fetch the new logo instead of a cached old one.
  */
 export function LogoMark({ className, variant = "monogram" }: { className?: string; variant?: "monogram" | "medallion" }) {
   return variant === "medallion" ? (
-    <img src="/brand/zenpen-medallion-320.webp" alt="" width={320} height={320} className={className} />
+    <img src="/brand/zp-medallion-v2-320.webp" alt="" width={320} height={320} className={className} />
   ) : (
-    <img src="/brand/zenpen-monogram-128.webp" alt="" width={128} height={128} className={className} />
+    <img src="/brand/zp-mark-v2-128.webp" alt="" width={128} height={128} className={className} />
   );
 }
 

@@ -22,8 +22,8 @@ const onBg = async (svg, size, inner, bg) =>
     .toBuffer();
 
 // Web logo files used by the header/footer and hero.
-await sharp(await png(monogram, 128)).webp({ quality: 92 }).toFile(at("public/brand/zenpen-monogram-128.webp"));
-await sharp(await png(medallion, 320)).webp({ quality: 92 }).toFile(at("public/brand/zenpen-medallion-320.webp"));
+await sharp(await png(monogram, 128)).webp({ quality: 92 }).toFile(at("public/brand/zp-mark-v2-128.webp"));
+await sharp(await png(medallion, 320)).webp({ quality: 92 }).toFile(at("public/brand/zp-medallion-v2-320.webp"));
 await writeFile(at("public/brand/zenpen-logo.png"), medallion);
 await writeFile(at("public/brand/zenpen-favicon-mark.png"), monogram);
 
