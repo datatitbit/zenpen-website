@@ -100,7 +100,7 @@ $details = trim((string) ($_POST['details'] ?? ''));
 $details = mb_substr(str_replace("\r\n", "\n", $details), 0, 4000);
 
 if ($name === '' || $service === '') {
-    respond(false, 'Please provide your name and the service you need.');
+    respond(false, 'Please provide your name and what you are shopping for.');
 }
 
 $emailValid = $email !== '' && filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
