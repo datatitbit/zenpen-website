@@ -1,0 +1,349 @@
+@import "tailwindcss";
+
+/*
+ * ZenPen brand palette (see docs in the zenpen cowork folder → brand guide).
+ * Ink = trust & premium, Jade = calm ("zen") & growth, Coral = energy & action,
+ * Sun = small celebratory accents. Sand keeps the page warm instead of clinical.
+ */
+:root {
+  color-scheme: light dark;
+
+  --ink-950: #070b18;
+  --ink-900: #0c1326;
+  --ink-800: #141e3a;
+  --ink-700: #1f2b4f;
+  --jade-700: #0a6b52;
+  --jade-600: #0c8a69;
+  --jade-500: #12a27a;
+  --jade-400: #2cc79a;
+  --jade-300: #86e6c8;
+  --jade-100: #dcf7ee;
+  --coral-300: #ffb39e;
+  --coral-400: #ff7a59;
+  --coral-500: #ff5d3a;
+  --coral-600: #d9401d;
+  --sun-400: #ffc24b;
+
+  --bg: #faf6f0;
+  --surface: #ffffff;
+  --surface-2: #f3ede4;
+  --ink: #0c1326;
+  --muted: #4a5468;
+  --line: #e6ddd0;
+  --brand-ink: #0a6b52;
+  --accent-ink: #b8361a;
+
+  /* "Red ink": every detail still awaiting the owner's confirmation. */
+  --ph: #d0021b;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #070b18;
+    --surface: #0f1730;
+    --surface-2: #141e3a;
+    --ink: #eef1f8;
+    --muted: #a9b3c9;
+    --line: #233056;
+    --brand-ink: #5fdcb5;
+    --accent-ink: #ff9b80;
+    --ph: #ff6b6b;
+  }
+}
+
+@theme inline {
+  --color-ink-950: var(--ink-950);
+  --color-ink-900: var(--ink-900);
+  --color-ink-800: var(--ink-800);
+  --color-ink-700: var(--ink-700);
+  --color-jade-700: var(--jade-700);
+  --color-jade-600: var(--jade-600);
+  --color-jade-500: var(--jade-500);
+  --color-jade-400: var(--jade-400);
+  --color-jade-300: var(--jade-300);
+  --color-jade-100: var(--jade-100);
+  --color-coral-300: var(--coral-300);
+  --color-coral-400: var(--coral-400);
+  --color-coral-500: var(--coral-500);
+  --color-coral-600: var(--coral-600);
+  --color-sun-400: var(--sun-400);
+
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-brand-ink: var(--brand-ink);
+  --color-accent-ink: var(--accent-ink);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+[id] {
+  scroll-margin-top: 6rem;
+}
+
+::selection {
+  background: var(--jade-300);
+  color: var(--ink-900);
+}
+
+@layer components {
+  .container-page {
+    width: 100%;
+    max-width: 78rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+  @media (min-width: 640px) {
+    .container-page {
+      padding-inline: 2rem;
+    }
+  }
+
+  /* Dark sections: lighter red ink so pending details stay readable. */
+  .zone-dark {
+    --ph: #ff7b7b;
+  }
+
+  .ph {
+    color: var(--ph);
+    font-weight: 800;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    min-height: 3rem;
+    padding: 0.75rem 1.4rem;
+    border-radius: 999px;
+    font-weight: 650;
+    font-size: 0.975rem;
+    line-height: 1.2;
+    transition:
+      transform 160ms ease,
+      background-color 160ms ease,
+      box-shadow 160ms ease,
+      border-color 160ms ease;
+  }
+  .btn svg {
+    width: 1.15rem;
+    height: 1.15rem;
+    flex: none;
+  }
+  .btn:hover {
+    transform: translateY(-1px);
+  }
+  /* Primary action: coral with ink text (5.9:1 contrast). */
+  .btn-coral {
+    background: linear-gradient(135deg, var(--coral-400), var(--coral-500));
+    color: var(--ink-900);
+    box-shadow: 0 12px 30px -12px rgb(255 93 58 / 0.7);
+  }
+  .btn-coral:hover {
+    box-shadow: 0 16px 36px -12px rgb(255 93 58 / 0.85);
+  }
+  .btn-jade {
+    background: var(--jade-600);
+    color: #fff;
+    box-shadow: 0 12px 30px -14px rgb(12 138 105 / 0.8);
+  }
+  .btn-jade:hover {
+    background: var(--jade-700);
+  }
+  .btn-ghost-dark {
+    color: #fff;
+    border: 1px solid rgb(255 255 255 / 0.22);
+    background: rgb(255 255 255 / 0.05);
+  }
+  .btn-ghost-dark:hover {
+    border-color: var(--jade-400);
+    background: rgb(255 255 255 / 0.09);
+  }
+  .btn-outline {
+    color: var(--ink);
+    border: 1px solid var(--line);
+    background: var(--surface);
+  }
+  .btn-outline:hover {
+    border-color: var(--jade-500);
+  }
+
+  :where(a, button, input, select, textarea, summary):focus-visible {
+    outline: 3px solid var(--coral-400);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--brand-ink);
+  }
+
+  .text-gradient {
+    color: var(--jade-400);
+    background: linear-gradient(110deg, var(--jade-300), var(--jade-400) 35%, var(--coral-400) 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-glow {
+    background:
+      radial-gradient(38rem 26rem at 88% 0%, rgb(255 93 58 / 0.22), transparent 65%),
+      radial-gradient(44rem 30rem at 0% 100%, rgb(18 162 122 / 0.32), transparent 70%);
+  }
+
+  /* Soft enso rings echoing the logo. */
+  .pattern-rings {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Ccircle cx='60' cy='60' r='38' fill='none' stroke='%232cc79a' stroke-width='1'/%3E%3C/svg%3E");
+    background-size: 120px 120px;
+    opacity: 0.08;
+    mask-image: radial-gradient(ellipse at 75% 25%, #000 10%, transparent 70%);
+  }
+
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.75rem;
+    border-radius: 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    transition:
+      transform 200ms ease,
+      box-shadow 200ms ease,
+      border-color 200ms ease;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--jade-500) 55%, var(--line));
+    box-shadow: 0 24px 50px -30px rgb(12 19 38 / 0.45);
+  }
+
+  .icon-tile {
+    display: grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.9rem;
+    background: var(--jade-100);
+    color: var(--jade-700);
+  }
+  .icon-tile svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  @media (prefers-color-scheme: dark) {
+    .icon-tile {
+      background: rgb(44 199 154 / 0.14);
+      color: var(--jade-300);
+    }
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    padding: 0.35rem 0.8rem;
+    font-size: 0.85rem;
+    font-weight: 550;
+  }
+
+  .field {
+    width: 100%;
+    border-radius: 0.85rem;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    color: var(--ink);
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+  }
+  .field:focus-visible {
+    border-color: var(--jade-500);
+  }
+  .field[aria-invalid="true"] {
+    border-color: #b42318;
+  }
+
+  .marquee {
+    display: flex;
+    width: max-content;
+    gap: 2.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .marquee {
+    animation: marquee 38s linear infinite;
+  }
+  .float-slow {
+    animation: float 7s ease-in-out infinite;
+  }
+  .float-slower {
+    animation: float 9s ease-in-out -3s infinite;
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 22%;
+    }
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
